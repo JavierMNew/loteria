@@ -5,6 +5,7 @@
  */
 package com.mycompany.loteria;
 
+import com.mycompany.clases.ReproductorDeSonido;
 import com.mycompany.conexionSQLServer.Conexion;
 import com.mycompany.loteria.Juego;
 import java.awt.Toolkit;
@@ -19,6 +20,8 @@ import java.sql.Statement;
  */
 public class Principal extends javax.swing.JFrame {
 
+    private ReproductorDeSonido reproductor;
+
     public void close() {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
@@ -26,6 +29,9 @@ public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
+        reproductor = new ReproductorDeSonido();
+        reproductor.cargarSonido("src\\main\\resources\\Monterrey-Theme-x-FIFA-World-Cup-26-by-Toy-Selectah.wav");
+        reproductor.reproducir();
     }
 
     /**
@@ -114,9 +120,23 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        if (reproductor != null) {
+            reproductor.detener();
+        }
+
+        ReproductorDeSonido clipBoton = new ReproductorDeSonido();
+        clipBoton.cargarSonido("src\\main\\resources\\button-124476.wav");
+        clipBoton.reproducir();
+
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
         close();
-        Juego juego = new Juego();
-        juego.setVisible(true);
+        new Juego().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

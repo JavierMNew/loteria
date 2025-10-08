@@ -5,6 +5,7 @@
  */
 package com.mycompany.loteria;
 
+import com.mycompany.clases.ReproductorDeSonido;
 import com.mycompany.conexionSQLServer.Conexion;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
@@ -27,6 +28,8 @@ public class Juego extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    private ReproductorDeSonido reproductor;
+
     public Juego() {
         initComponents();
     }
@@ -41,8 +44,8 @@ public class Juego extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        tittleLoteria = new javax.swing.JLabel();
+        tittleCartaActual = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -60,22 +63,22 @@ public class Juego extends javax.swing.JFrame {
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         cartaActual = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        btnIniciar = new javax.swing.JButton();
+        btnReiniciar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 231, 176));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Loteria");
+        tittleLoteria.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        tittleLoteria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tittleLoteria.setText("Loteria");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Carta actual");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tittleCartaActual.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        tittleCartaActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tittleCartaActual.setText("Carta actual");
+        tittleCartaActual.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButton1.setText("jButton1");
 
@@ -131,24 +134,24 @@ public class Juego extends javax.swing.JFrame {
 
         cartaActual.setText("jButton17");
 
-        jButton17.setText("Iniciar");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciar.setText("Iniciar");
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                btnIniciarActionPerformed(evt);
             }
         });
 
-        jButton18.setText("Reiniciar");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        btnReiniciar.setText("Reiniciar");
+        btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                btnReiniciarActionPerformed(evt);
             }
         });
 
-        jButton19.setText("Salir al menú");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("Salir al menú");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -159,15 +162,15 @@ public class Juego extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton17)
+                    .addComponent(btnIniciar)
                     .addComponent(cartaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton18)
+                        .addComponent(btnReiniciar)
                         .addGap(23, 23, 23)
-                        .addComponent(jButton19)))
+                        .addComponent(btnSalir)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tittleLoteria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,7 +207,7 @@ public class Juego extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tittleCartaActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(434, 434, 434))
         );
         jPanel1Layout.setVerticalGroup(
@@ -212,8 +215,8 @@ public class Juego extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(tittleLoteria)
+                    .addComponent(tittleCartaActual))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -243,11 +246,11 @@ public class Juego extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cartaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(jButton17)
+                        .addComponent(btnIniciar)
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton18)
-                            .addComponent(jButton19))))
+                            .addComponent(btnReiniciar)
+                            .addComponent(btnSalir))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -281,7 +284,7 @@ public class Juego extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
 
         try {
             Conexion conexion = new Conexion();
@@ -294,7 +297,7 @@ public class Juego extends javax.swing.JFrame {
             if (rs.next()) {
                 String nombre_carta = rs.getString("nombre_carta");
                 cartaActual.setText(nombre_carta);
-                jButton17.setText("Siguiente carta");
+                btnIniciar.setText("Siguiente carta");
                 String texto_actual = cartaActual.getText();
                 System.out.println(texto_actual);
             }
@@ -307,15 +310,44 @@ public class Juego extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_btnIniciarActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+
+        if (reproductor != null) {
+            reproductor.detener();
+        }
+
+        ReproductorDeSonido clipBoton = new ReproductorDeSonido();
+        clipBoton.cargarSonido("src\\main\\resources\\button-124476.wav");
+        clipBoton.reproducir();
+
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
         close();
-        Principal principal = new Principal();
-        principal.setVisible(true);
-    }//GEN-LAST:event_jButton19ActionPerformed
+        new Principal().setVisible(true);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
+
+        if (reproductor != null) {
+            reproductor.detener();
+        }
+
+        ReproductorDeSonido clipBoton = new ReproductorDeSonido();
+        clipBoton.cargarSonido("src\\main\\resources\\button-124476.wav");
+        clipBoton.reproducir();
+
+        /*try {
+            Thread.sleep(400);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }*/
+
         try {
             Conexion conexion = new Conexion();
             Connection conn = conexion.establecerConexion();
@@ -327,7 +359,7 @@ public class Juego extends javax.swing.JFrame {
             if (rs.next()) {
                 String nombre_carta = rs.getString("nombre_carta");
                 cartaActual.setText(nombre_carta);
-                jButton17.setText("Siguiente carta");
+                btnIniciar.setText("Siguiente carta");
                 String texto_actual = cartaActual.getText();
                 System.out.println(texto_actual);
             }
@@ -339,7 +371,7 @@ public class Juego extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_btnReiniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,6 +412,9 @@ public class Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnReiniciar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JButton cartaActual;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -389,9 +424,6 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -400,8 +432,8 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel tittleCartaActual;
+    private javax.swing.JLabel tittleLoteria;
     // End of variables declaration//GEN-END:variables
 }
