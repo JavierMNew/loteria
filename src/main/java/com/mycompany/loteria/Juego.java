@@ -62,10 +62,10 @@ public class Juego extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
-        cartaActual = new javax.swing.JButton();
         btnIniciar = new javax.swing.JButton();
         btnReiniciar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        cartaAcual = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -132,9 +132,8 @@ public class Juego extends javax.swing.JFrame {
 
         jButton16.setText("jButton1");
 
-        cartaActual.setText("jButton17");
-
         btnIniciar.setText("Iniciar");
+        btnIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarActionPerformed(evt);
@@ -142,6 +141,7 @@ public class Juego extends javax.swing.JFrame {
         });
 
         btnReiniciar.setText("Reiniciar");
+        btnReiniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReiniciarActionPerformed(evt);
@@ -149,11 +149,14 @@ public class Juego extends javax.swing.JFrame {
         });
 
         btnSalir.setText("Salir al menú");
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
+
+        cartaAcual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Baraja loteria mexicana-29.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,12 +166,12 @@ public class Juego extends javax.swing.JFrame {
                 .addGap(94, 94, 94)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnIniciar)
-                    .addComponent(cartaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cartaAcual)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnReiniciar)
                         .addGap(23, 23, 23)
                         .addComponent(btnSalir)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tittleLoteria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,10 +247,10 @@ public class Juego extends javax.swing.JFrame {
                             .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cartaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
+                        .addComponent(cartaAcual)
+                        .addGap(18, 18, 18)
                         .addComponent(btnIniciar)
-                        .addGap(50, 50, 50)
+                        .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnReiniciar)
                             .addComponent(btnSalir))))
@@ -290,23 +293,34 @@ public class Juego extends javax.swing.JFrame {
             Conexion conexion = new Conexion();
             Connection conn = conexion.establecerConexion();
 
-            String sql = "SELECT TOP 1 PERCENT * FROM cartas ORDER BY NEWID()"; //ORDER BY NEWID()
+            String sql = "SELECT c.nombre_carta, ci.ruta_imagen "
+                    + "FROM cartas c "
+                    + "INNER JOIN cartas_imagen ci "
+                    + "ON c.cve_carta = ci.cve_carta "
+                    + "WHERE c.cve_carta = 1;";
+
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
 
             if (rs.next()) {
-                String nombre_carta = rs.getString("nombre_carta");
-                cartaActual.setText(nombre_carta);
-                btnIniciar.setText("Siguiente carta");
-                String texto_actual = cartaActual.getText();
-                System.out.println(texto_actual);
+                String nombreCarta = rs.getString("nombre_carta");
+                String rutaImagen = rs.getString("ruta_imagen");
+
+                javax.swing.ImageIcon icono = new javax.swing.ImageIcon(rutaImagen);
+
+                java.awt.Image imgEscalada = icono.getImage().getScaledInstance(
+                        cartaAcual.getWidth(), cartaAcual.getHeight(),
+                        java.awt.Image.SCALE_SMOOTH
+                );
+
+                cartaAcual.setIcon(new javax.swing.ImageIcon(imgEscalada));
             }
 
             rs.close();
             st.close();
             conn.close();
 
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
@@ -347,7 +361,8 @@ public class Juego extends javax.swing.JFrame {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }*/
-
+        
+        /*
         try {
             Conexion conexion = new Conexion();
             Connection conn = conexion.establecerConexion();
@@ -371,6 +386,7 @@ public class Juego extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        */
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     /**
@@ -415,7 +431,7 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton cartaActual;
+    private javax.swing.JLabel cartaAcual;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
