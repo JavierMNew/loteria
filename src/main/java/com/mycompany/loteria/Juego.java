@@ -33,6 +33,46 @@ public class Juego extends javax.swing.JFrame {
     private int[] ordenCartasActuales;
     private boolean ordenCreado = false;
 
+    private javax.swing.Timer timerCartaActual;
+    private boolean juegoIniciado = false;
+
+    private void inicializarTimer() {
+        timerCartaActual = new javax.swing.Timer(2000, new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                if (juegoIniciado) {
+                    cargarCartaActual();
+                }
+            }
+        });
+
+        timerCartaActual.setRepeats(true);
+    }
+
+    private void iniciarTimerCartas() {
+        if (timerCartaActual != null) {
+            juegoIniciado = true;
+            timerCartaActual.start();
+        }
+    }
+
+    private void detenerTimerCartas() {
+        if (timerCartaActual != null && timerCartaActual.isRunning()) {
+            timerCartaActual.stop();
+            juegoIniciado = false;
+            System.out.println("Timer de cartas detenido");
+        }
+    }
+
+    private void pausarReanudarTimer() {
+        if (timerCartaActual != null) {
+            if (timerCartaActual.isRunning()) {
+                timerCartaActual.stop();
+            } else {
+                timerCartaActual.start();
+            }
+        }
+    }
+
     private void crearOrdenAleatorio() {
         ordenCartasActuales = new int[54];
 
@@ -79,12 +119,31 @@ public class Juego extends javax.swing.JFrame {
         }
     }
 
+    private void procesarClickCarta(javax.swing.JButton boton) {
+        if (!boton.isEnabled()) {
+            return;
+        }
+
+        if (reproductor != null) {
+            reproductor.detener();
+        }
+
+        ReproductorDeSonido clipBoton = new ReproductorDeSonido();
+        clipBoton.cargarSonido("src\\main\\resources\\ping.wav");
+        clipBoton.reproducir();
+
+        boton.setEnabled(false);
+    }
+
     public Juego() {
         initComponents();
         configurarBotonesIniciales();
         btnReiniciar.setVisible(false);
         btnIniciar.setVisible(true);
         btnSigCarta.setVisible(false);
+        btnSigCarta.setVisible(false); //quitar para modo maualn
+        btnPausa.setVisible(false);
+        inicializarTimer();
     }
 
     //1x1
@@ -129,6 +188,8 @@ public class Juego extends javax.swing.JFrame {
 
                     cartaAcual.setIcon(new javax.swing.ImageIcon(imgEscalada));
                     cartaAcual.setToolTipText(nombreCarta);
+                    /*String txtCartaActual = nombreCarta;
+                    tittleCartaActual.setText(txtCartaActual);*/
 
                     System.out.println(" actual  " + (posicionCartaActual + 1) + ", cve_carta " + cveCartaActual + "): " + nombreCarta);
 
@@ -252,7 +313,6 @@ public class Juego extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         tittleLoteria = new javax.swing.JLabel();
-        tittleCartaActual = new javax.swing.JLabel();
         carta1 = new javax.swing.JButton();
         carta2 = new javax.swing.JButton();
         carta3 = new javax.swing.JButton();
@@ -274,6 +334,7 @@ public class Juego extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         cartaAcual = new javax.swing.JButton();
         btnSigCarta = new javax.swing.JButton();
+        btnPausa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -283,13 +344,13 @@ public class Juego extends javax.swing.JFrame {
         tittleLoteria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tittleLoteria.setText("Loteria");
 
-        tittleCartaActual.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        tittleCartaActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tittleCartaActual.setText("Carta actual");
-        tittleCartaActual.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta1MouseClicked(evt);
+            }
+        });
         carta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carta1ActionPerformed(evt);
@@ -298,12 +359,27 @@ public class Juego extends javax.swing.JFrame {
 
         carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta2ActionPerformed(evt);
+            }
+        });
 
         carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta3ActionPerformed(evt);
+            }
+        });
 
         carta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta4ActionPerformed(evt);
+            }
+        });
 
         carta5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -315,12 +391,27 @@ public class Juego extends javax.swing.JFrame {
 
         carta6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta6ActionPerformed(evt);
+            }
+        });
 
         carta7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta7ActionPerformed(evt);
+            }
+        });
 
         carta8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta8ActionPerformed(evt);
+            }
+        });
 
         carta9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -332,12 +423,27 @@ public class Juego extends javax.swing.JFrame {
 
         carta10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta10ActionPerformed(evt);
+            }
+        });
 
         carta11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta11ActionPerformed(evt);
+            }
+        });
 
         carta12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta12ActionPerformed(evt);
+            }
+        });
 
         carta13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -349,12 +455,27 @@ public class Juego extends javax.swing.JFrame {
 
         carta14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta14ActionPerformed(evt);
+            }
+        });
 
         carta15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta15ActionPerformed(evt);
+            }
+        });
 
         carta16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carta16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carta16ActionPerformed(evt);
+            }
+        });
 
         btnIniciar.setText("Iniciar");
         btnIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -383,9 +504,18 @@ public class Juego extends javax.swing.JFrame {
         cartaAcual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cartatrasera.png"))); // NOI18N
 
         btnSigCarta.setText("Siguiente carta");
+        btnSigCarta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSigCarta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSigCartaActionPerformed(evt);
+            }
+        });
+
+        btnPausa.setText("Pausar");
+        btnPausa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPausa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPausaActionPerformed(evt);
             }
         });
 
@@ -397,81 +527,51 @@ public class Juego extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(cartaAcual, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addComponent(btnReiniciar)
-                                .addGap(44, 44, 44))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnIniciar)
-                                .addGap(29, 29, 29)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSigCarta)
-                            .addComponent(btnSalir))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(btnIniciar)
+                            .addComponent(cartaAcual, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPausa)
+                            .addComponent(btnSalir)
+                            .addComponent(btnReiniciar)))
+                    .addComponent(btnSigCarta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tittleLoteria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(carta13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(carta14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(carta15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(135, 135, 135))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(carta9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(318, 318, 318))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(29, 29, 29)
-                                            .addComponent(carta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(carta5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(carta2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(carta3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(carta4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(carta6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(carta7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(carta10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(carta11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(carta12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(carta8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(carta16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                            .addGap(33, 33, 33))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(carta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(carta2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(carta3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(carta4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carta16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tittleCartaActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(434, 434, 434))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tittleLoteria)
-                    .addComponent(tittleCartaActual))
+                .addComponent(tittleLoteria)
                 .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -500,13 +600,15 @@ public class Juego extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cartaAcual, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnIniciar)
-                            .addComponent(btnSigCarta))
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnReiniciar)
-                            .addComponent(btnSalir))))
+                        .addComponent(btnIniciar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPausa)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnReiniciar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSigCarta, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -525,19 +627,27 @@ public class Juego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void carta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta1ActionPerformed
-        // TODO add your handling code here:
+
+        procesarClickCarta(carta1);
+
     }//GEN-LAST:event_carta1ActionPerformed
 
     private void carta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta5ActionPerformed
-        // TODO add your handling code here:
+
+        procesarClickCarta(carta5);
+
     }//GEN-LAST:event_carta5ActionPerformed
 
     private void carta9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta9ActionPerformed
-        // TODO add your handling code here:
+
+        procesarClickCarta(carta9);
+
     }//GEN-LAST:event_carta9ActionPerformed
 
     private void carta13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta13ActionPerformed
-        // TODO add your handling code here:
+
+        procesarClickCarta(carta13);
+
     }//GEN-LAST:event_carta13ActionPerformed
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
@@ -558,10 +668,12 @@ public class Juego extends javax.swing.JFrame {
 
         cargarTableroCompleto();
         cargarCartaActual();
+        iniciarTimerCartas();
 
-        btnReiniciar.setVisible(true);
+        //btnReiniciar.setVisible(true);
         btnIniciar.setVisible(false);
-        btnSigCarta.setVisible(true);
+        btnPausa.setVisible(true);
+        //btnSigCarta.setVisible(true);
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -569,6 +681,8 @@ public class Juego extends javax.swing.JFrame {
         if (reproductor != null) {
             reproductor.detener();
         }
+
+        detenerTimerCartas();
 
         ReproductorDeSonido clipBoton = new ReproductorDeSonido();
         clipBoton.cargarSonido("src\\main\\resources\\button-124476.wav");
@@ -621,7 +735,106 @@ public class Juego extends javax.swing.JFrame {
         }
 
         cargarCartaActual();
+        btnReiniciar.setVisible(false);
     }//GEN-LAST:event_btnSigCartaActionPerformed
+
+    private void carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta1MouseClicked
+
+    private void carta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta2ActionPerformed
+
+        procesarClickCarta(carta2);
+
+    }//GEN-LAST:event_carta2ActionPerformed
+
+    private void carta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta3ActionPerformed
+
+        procesarClickCarta(carta3);
+
+    }//GEN-LAST:event_carta3ActionPerformed
+
+    private void carta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta4ActionPerformed
+
+        procesarClickCarta(carta4);
+
+    }//GEN-LAST:event_carta4ActionPerformed
+
+    private void carta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta6ActionPerformed
+
+        procesarClickCarta(carta6);
+
+    }//GEN-LAST:event_carta6ActionPerformed
+
+    private void carta7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta7ActionPerformed
+
+        procesarClickCarta(carta7);
+
+    }//GEN-LAST:event_carta7ActionPerformed
+
+    private void carta8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta8ActionPerformed
+
+        procesarClickCarta(carta8);
+
+    }//GEN-LAST:event_carta8ActionPerformed
+
+    private void carta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta10ActionPerformed
+
+        procesarClickCarta(carta10);
+
+    }//GEN-LAST:event_carta10ActionPerformed
+
+    private void carta11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta11ActionPerformed
+
+        procesarClickCarta(carta11);
+
+    }//GEN-LAST:event_carta11ActionPerformed
+
+    private void carta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta12ActionPerformed
+
+        procesarClickCarta(carta12);
+
+    }//GEN-LAST:event_carta12ActionPerformed
+
+    private void carta14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta14ActionPerformed
+
+        procesarClickCarta(carta14);
+
+    }//GEN-LAST:event_carta14ActionPerformed
+
+    private void carta15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta15ActionPerformed
+
+        procesarClickCarta(carta15);
+
+    }//GEN-LAST:event_carta15ActionPerformed
+
+    private void carta16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carta16ActionPerformed
+
+        procesarClickCarta(carta16);
+
+    }//GEN-LAST:event_carta16ActionPerformed
+
+    private void btnPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausaActionPerformed
+
+        if (reproductor != null) {
+            reproductor.detener();
+        }
+
+        ReproductorDeSonido clipBoton = new ReproductorDeSonido();
+        clipBoton.cargarSonido("src\\main\\resources\\button-124476.wav");
+        clipBoton.reproducir();
+
+        pausarReanudarTimer();
+
+        String txtBtnPausa = btnPausa.getText();
+
+        if (txtBtnPausa == "Pausar") {
+            btnPausa.setText("Reanudar");
+        } else if (txtBtnPausa == "Reanudar") {
+            btnPausa.setText("Pausar");
+        }
+
+    }//GEN-LAST:event_btnPausaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -663,6 +876,7 @@ public class Juego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnPausa;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSigCarta;
@@ -684,7 +898,6 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton carta9;
     private javax.swing.JButton cartaAcual;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel tittleCartaActual;
     private javax.swing.JLabel tittleLoteria;
     // End of variables declaration//GEN-END:variables
 }
