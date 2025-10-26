@@ -27,11 +27,31 @@ public class Principal extends javax.swing.JFrame {
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
 
+    private void actualizarInterfazSesion() {
+        com.mycompany.clases.SesionUsuario sesion = com.mycompany.clases.SesionUsuario.getInstancia();
+
+        if (sesion.isSesionActiva()) {
+            btnIniciarSesion.setVisible(false);
+            btnCerrarSesion.setVisible(true);
+
+            lblUsuario.setText("Usuario: " + sesion.getNombreUsuario());
+            lblPuntuacion.setText("Puntuación: " + sesion.getPuntuacion());
+        } else {
+            btnIniciarSesion.setVisible(true);
+            btnCerrarSesion.setVisible(false);
+
+            lblUsuario.setText("No has iniciado sesión");
+            lblPuntuacion.setText("");
+        }
+    }
+
     public Principal() {
         initComponents();
         reproductor = new ReproductorDeSonido();
         reproductor.cargarSonido("src\\main\\resources\\Monterrey-Theme-x-FIFA-World-Cup-26-by-Toy-Selectah.wav");
         reproductor.reproducir();
+
+        actualizarInterfazSesion();
     }
 
     /**
@@ -48,7 +68,10 @@ public class Principal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnIniciarSesion = new javax.swing.JButton();
+        lblUsuario = new javax.swing.JLabel();
+        lblPuntuacion = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -81,7 +104,21 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Amarillo Rojo Azul y Verde Festivo Banderines A4 (847 x 702 px).png"))); // NOI18N
 
-        jButton2.setText("Iniciar sesión");
+        btnIniciarSesion.setText("Iniciar sesión");
+        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
+
+        btnCerrarSesion.setText("Cerrar sesión");
+        btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,8 +132,17 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblPuntuacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnIniciarSesion))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCerrarSesion)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -107,10 +153,19 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(90, 90, 90)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(btnCerrarSesion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnIniciarSesion))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUsuario)
+                            .addComponent(lblPuntuacion))))
                 .addContainerGap())
         );
 
@@ -148,10 +203,58 @@ public class Principal extends javax.swing.JFrame {
         new Juego().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        if (reproductor != null) {
+            reproductor.detener();
+        }
+
+        ReproductorDeSonido clipBoton = new ReproductorDeSonido();
+        clipBoton.cargarSonido("src\\main\\resources\\button-124476.wav");
+        clipBoton.reproducir();
+
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
+        close();
+        new Login().setVisible(true);
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+       
+        if (reproductor != null) {
+            reproductor.detener();
+        }
+
+        ReproductorDeSonido clipBoton = new ReproductorDeSonido();
+        clipBoton.cargarSonido("src\\main\\resources\\button-124476.wav");
+        clipBoton.reproducir();
+
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
+        com.mycompany.clases.SesionUsuario sesion = com.mycompany.clases.SesionUsuario.getInstancia();
+        String nombreUsuario = sesion.getNombreUsuario();
+        sesion.cerrarSesion();
+
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "Hasta luego, " + nombreUsuario + "!",
+                "Sesión cerrada",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+        actualizarInterfazSesion();
+        
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+/**
+ * @param args the command line arguments
+ */
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -165,13 +268,25 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal
+
+.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal
+
+.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal
+
+.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal
+
+.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -184,11 +299,14 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblPuntuacion;
+    private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }

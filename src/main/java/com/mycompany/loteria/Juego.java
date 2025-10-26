@@ -59,7 +59,7 @@ public class Juego extends javax.swing.JFrame {
         if (timerCartaActual != null && timerCartaActual.isRunning()) {
             timerCartaActual.stop();
             juegoIniciado = false;
-            System.out.println("Timer de cartas detenido");
+            System.out.println("tmer deteniddo");
         }
     }
 
@@ -312,7 +312,6 @@ public class Juego extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        tittleLoteria = new javax.swing.JLabel();
         carta1 = new javax.swing.JButton();
         carta2 = new javax.swing.JButton();
         carta3 = new javax.swing.JButton();
@@ -335,14 +334,11 @@ public class Juego extends javax.swing.JFrame {
         cartaAcual = new javax.swing.JButton();
         btnSigCarta = new javax.swing.JButton();
         btnPausa = new javax.swing.JButton();
+        btnLoteria = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 231, 176));
-
-        tittleLoteria.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        tittleLoteria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tittleLoteria.setText("Loteria");
 
         carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
         carta1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -519,6 +515,14 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
+        btnLoteria.setText("¡LOTERÍA!");
+        btnLoteria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLoteria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoteriaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -534,11 +538,9 @@ public class Juego extends javax.swing.JFrame {
                             .addComponent(btnSalir)
                             .addComponent(btnReiniciar)))
                     .addComponent(btnSigCarta))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tittleLoteria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(carta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(carta5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -561,24 +563,30 @@ public class Juego extends javax.swing.JFrame {
                             .addComponent(carta4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(carta8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(carta12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(carta16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)))
+                            .addComponent(carta16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnLoteria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tittleLoteria)
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(cartaAcual, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btnIniciar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPausa)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnReiniciar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(carta3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(carta4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(carta3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(carta4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(carta1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(carta2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(carta2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(carta6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -596,20 +604,16 @@ public class Juego extends javax.swing.JFrame {
                             .addComponent(carta14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(carta13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(carta15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(carta16, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(carta16, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(3, 3, 3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cartaAcual, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnIniciar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPausa)
-                        .addGap(42, 42, 42)
-                        .addComponent(btnReiniciar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSigCarta, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                            .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnLoteria, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -836,6 +840,34 @@ public class Juego extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnPausaActionPerformed
 
+    private void btnLoteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoteriaActionPerformed
+
+        com.mycompany.clases.SesionUsuario sesion = com.mycompany.clases.SesionUsuario.getInstancia();
+
+        if (!sesion.isSesionActiva()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Debes iniciar sesión para jugar",
+                    "Sesión requerida",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (reproductor != null) {
+            reproductor.detener();
+        }
+        ReproductorDeSonido clipLoteria = new ReproductorDeSonido();
+        clipLoteria.cargarSonido("src\\main\\resources\\loteria.wav"); // Agrega un sonido de victoria
+        clipLoteria.reproducir();
+
+        sesion.incrementarPuntuacion();
+
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "¡FELICIDADES " + sesion.getNombreUsuario() + "!\n"
+                + "Puntuación actual: " + sesion.getPuntuacion(),
+                "¡LOTERÍA!",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnLoteriaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -876,6 +908,7 @@ public class Juego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnLoteria;
     private javax.swing.JButton btnPausa;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JButton btnSalir;
@@ -898,6 +931,5 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton carta9;
     private javax.swing.JButton cartaAcual;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel tittleLoteria;
     // End of variables declaration//GEN-END:variables
 }
