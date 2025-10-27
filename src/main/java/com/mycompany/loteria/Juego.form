@@ -160,7 +160,7 @@
         <Component class="javax.swing.JButton" name="carta1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -174,7 +174,7 @@
         <Component class="javax.swing.JButton" name="carta2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -187,7 +187,7 @@
         <Component class="javax.swing.JButton" name="carta3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -200,7 +200,7 @@
         <Component class="javax.swing.JButton" name="carta4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -213,7 +213,7 @@
         <Component class="javax.swing.JButton" name="carta5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -226,7 +226,7 @@
         <Component class="javax.swing.JButton" name="carta6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -239,7 +239,7 @@
         <Component class="javax.swing.JButton" name="carta7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -252,7 +252,7 @@
         <Component class="javax.swing.JButton" name="carta8">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -265,7 +265,7 @@
         <Component class="javax.swing.JButton" name="carta9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -278,7 +278,7 @@
         <Component class="javax.swing.JButton" name="carta10">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -291,7 +291,7 @@
         <Component class="javax.swing.JButton" name="carta11">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -304,7 +304,7 @@
         <Component class="javax.swing.JButton" name="carta12">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -317,7 +317,7 @@
         <Component class="javax.swing.JButton" name="carta13">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -330,7 +330,7 @@
         <Component class="javax.swing.JButton" name="carta14">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -343,7 +343,7 @@
         <Component class="javax.swing.JButton" name="carta15">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -356,7 +356,7 @@
         <Component class="javax.swing.JButton" name="carta16">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/detras.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2) (1).png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -402,8 +402,12 @@
         <Component class="javax.swing.JButton" name="cartaAcual">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Cartatrasera.png"/>
+              <Image iconType="3" name="/Dise&#xf1;o sin t&#xed;tulo (2).png"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnSigCarta">

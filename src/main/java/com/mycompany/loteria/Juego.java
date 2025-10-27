@@ -340,7 +340,7 @@ public class Juego extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 231, 176));
 
-        carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -353,7 +353,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -361,7 +361,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -369,7 +369,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -377,7 +377,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -385,7 +385,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,7 +393,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,7 +401,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -409,7 +409,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,7 +417,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -425,7 +425,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -433,7 +433,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,7 +441,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,7 +449,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,7 +457,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -465,7 +465,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        carta16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detras.png"))); // NOI18N
+        carta16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2) (1).png"))); // NOI18N
         carta16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carta16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -497,7 +497,9 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        cartaAcual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cartatrasera.png"))); // NOI18N
+        cartaAcual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (2).png"))); // NOI18N
+        cartaAcual.setBorder(null);
+        cartaAcual.setBorderPainted(false);
 
         btnSigCarta.setText("Siguiente carta");
         btnSigCarta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
