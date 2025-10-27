@@ -6,7 +6,7 @@ com\mycompany\loteria\Juego$25.class
 com\mycompany\loteria\Juego$8.class
 com\mycompany\loteria\Juego$10.class
 com\mycompany\loteria\Juego$13.class
-com\mycompany\loteria\Register$3.class
+com\mycompany\loteria\Principal$5.class
 com\mycompany\loteria\Juego$16.class
 com\mycompany\loteria\Login$1.class
 com\mycompany\loteria\Juego$4.class
@@ -17,6 +17,7 @@ com\mycompany\loteria\Juego$12.class
 com\mycompany\loteria\Juego$22.class
 com\mycompany\clases\UsuarioDAO.class
 com\mycompany\loteria\Register$1.class
+com\mycompany\loteria\Instrucciones.class
 com\mycompany\loteria\Juego$23.class
 com\mycompany\loteria\Juego$18.class
 com\mycompany\loteria\Register$2.class
@@ -39,6 +40,7 @@ com\mycompany\loteria\Principal$4.class
 com\mycompany\clases\SesionUsuario.class
 com\mycompany\loteria\Juego$7.class
 com\mycompany\loteria\Juego$15.class
+com\mycompany\loteria\Instrucciones$1.class
 com\mycompany\conexionSQLServer\Conexion.class
 com\mycompany\loteria\Juego$6.class
 com\mycompany\loteria\Login$3.class

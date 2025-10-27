@@ -42,52 +42,83 @@ public class Register extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         tittleRegister = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
-        btnVolverInicioSesion = new javax.swing.JButton();
         btnRegistrarse = new javax.swing.JButton();
         fieldNombreUsuario = new javax.swing.JTextField();
         fieldCorreo = new javax.swing.JTextField();
         fieldContraseña = new javax.swing.JPasswordField();
         fieldConfirmarContrasena = new javax.swing.JPasswordField();
+        tittleUsername = new javax.swing.JLabel();
+        tittleEmail = new javax.swing.JLabel();
+        tittlePass = new javax.swing.JLabel();
+        tittleConfirmPass = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 231, 176));
 
-        tittleRegister.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        tittleRegister.setBackground(new java.awt.Color(255, 153, 0));
+        tittleRegister.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
+        tittleRegister.setForeground(new java.awt.Color(175, 109, 55));
         tittleRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tittleRegister.setText("Registrate");
 
-        btnVolver.setText("Volver al inicio");
+        btnVolver.setBackground(new java.awt.Color(244, 120, 175));
+        btnVolver.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(51, 0, 51));
+        btnVolver.setText("Volver al menú");
+        btnVolver.setBorder(null);
+        btnVolver.setBorderPainted(false);
         btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolver.setPreferredSize(new java.awt.Dimension(130, 30));
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
 
-        btnVolverInicioSesion.setText("Volver al inicio de sesión");
-        btnVolverInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnVolverInicioSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverInicioSesionActionPerformed(evt);
-            }
-        });
-
+        btnRegistrarse.setBackground(new java.awt.Color(244, 120, 175));
+        btnRegistrarse.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(51, 0, 51));
         btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.setBorder(null);
+        btnRegistrarse.setBorderPainted(false);
         btnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrarse.setPreferredSize(new java.awt.Dimension(130, 30));
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarseActionPerformed(evt);
             }
         });
 
-        fieldNombreUsuario.setText("nombre usuario");
+        fieldNombreUsuario.setBackground(new java.awt.Color(244, 120, 175));
 
-        fieldCorreo.setText("correo");
+        fieldCorreo.setBackground(new java.awt.Color(244, 120, 175));
 
+        fieldContraseña.setBackground(new java.awt.Color(244, 120, 175));
         fieldContraseña.setText("jPasswordField1");
 
+        fieldConfirmarContrasena.setBackground(new java.awt.Color(244, 120, 175));
         fieldConfirmarContrasena.setText("jPasswordField1");
+
+        tittleUsername.setBackground(new java.awt.Color(255, 153, 0));
+        tittleUsername.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        tittleUsername.setForeground(new java.awt.Color(175, 109, 55));
+        tittleUsername.setText("Nombre de usuario");
+
+        tittleEmail.setBackground(new java.awt.Color(255, 153, 0));
+        tittleEmail.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        tittleEmail.setForeground(new java.awt.Color(175, 109, 55));
+        tittleEmail.setText("Correo electrónico");
+
+        tittlePass.setBackground(new java.awt.Color(255, 153, 0));
+        tittlePass.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        tittlePass.setForeground(new java.awt.Color(175, 109, 55));
+        tittlePass.setText("Contraseña");
+
+        tittleConfirmPass.setBackground(new java.awt.Color(255, 153, 0));
+        tittleConfirmPass.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        tittleConfirmPass.setForeground(new java.awt.Color(175, 109, 55));
+        tittleConfirmPass.setText("Confirmar contraseña");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,47 +128,56 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tittleRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnVolverInicioSesion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnVolver))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(344, 344, 344)
-                                .addComponent(btnRegistrarse))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(274, 274, 274)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(fieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fieldNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fieldConfirmarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(tittleRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 208, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tittleUsername)
+                            .addComponent(tittleEmail)
+                            .addComponent(tittlePass)
+                            .addComponent(tittleConfirmPass))
+                        .addGap(71, 71, 71)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(fieldCorreo)
+                            .addComponent(fieldContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                            .addComponent(fieldConfirmarContrasena)
+                            .addComponent(fieldNombreUsuario))
+                        .addGap(166, 166, 166))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(345, 345, 345))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tittleRegister)
-                .addGap(45, 45, 45)
-                .addComponent(fieldNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(fieldNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tittleUsername))
                 .addGap(18, 18, 18)
-                .addComponent(fieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(fieldConfirmarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addComponent(btnRegistrarse)
-                .addGap(272, 272, 272)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolver)
-                    .addComponent(btnVolverInicioSesion))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(fieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tittleEmail))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(tittlePass)
+                    .addComponent(fieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(tittleConfirmPass)
+                    .addComponent(fieldConfirmarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(96, 96, 96)
+                .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -173,25 +213,6 @@ public class Register extends javax.swing.JFrame {
         close();
         new Principal().setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
-
-    private void btnVolverInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInicioSesionActionPerformed
-        if (reproductor != null) {
-            reproductor.detener();
-        }
-
-        ReproductorDeSonido clipBoton = new ReproductorDeSonido();
-        clipBoton.cargarSonido("src\\main\\resources\\button-124476.wav");
-        clipBoton.reproducir();
-
-        try {
-            Thread.sleep(400);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
-
-        close();
-        new Login().setVisible(true);
-    }//GEN-LAST:event_btnVolverInicioSesionActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
 
@@ -294,12 +315,15 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarse;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JButton btnVolverInicioSesion;
     private javax.swing.JPasswordField fieldConfirmarContrasena;
     private javax.swing.JPasswordField fieldContraseña;
     private javax.swing.JTextField fieldCorreo;
     private javax.swing.JTextField fieldNombreUsuario;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel tittleConfirmPass;
+    private javax.swing.JLabel tittleEmail;
+    private javax.swing.JLabel tittlePass;
     private javax.swing.JLabel tittleRegister;
+    private javax.swing.JLabel tittleUsername;
     // End of variables declaration//GEN-END:variables
 }

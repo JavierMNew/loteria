@@ -64,59 +64,87 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        tittleLoteria = new javax.swing.JLabel();
+        btnJugar = new javax.swing.JButton();
+        tittleMexicana = new javax.swing.JLabel();
+        pngLoteria = new javax.swing.JLabel();
         btnIniciarSesion = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
         lblPuntuacion = new javax.swing.JLabel();
         btnCerrarSesion = new javax.swing.JButton();
+        btnInstrucciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 231, 176));
         jPanel1.setMaximumSize(new java.awt.Dimension(847, 702));
 
-        jLabel1.setBackground(new java.awt.Color(175, 109, 55));
-        jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(175, 109, 55));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("LOTERÍA");
+        tittleLoteria.setBackground(new java.awt.Color(175, 109, 55));
+        tittleLoteria.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
+        tittleLoteria.setForeground(new java.awt.Color(175, 109, 55));
+        tittleLoteria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tittleLoteria.setText("LOTERÍA");
 
-        jButton1.setBackground(new java.awt.Color(244, 120, 175));
-        jButton1.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
-        jButton1.setText("Jugar");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnJugar.setBackground(new java.awt.Color(244, 120, 175));
+        btnJugar.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
+        btnJugar.setForeground(new java.awt.Color(51, 0, 51));
+        btnJugar.setText("Jugar");
+        btnJugar.setBorder(null);
+        btnJugar.setBorderPainted(false);
+        btnJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnJugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnJugarActionPerformed(evt);
             }
         });
 
-        jLabel3.setBackground(new java.awt.Color(175, 109, 55));
-        jLabel3.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(175, 109, 55));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("MEXICANA");
+        tittleMexicana.setBackground(new java.awt.Color(175, 109, 55));
+        tittleMexicana.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
+        tittleMexicana.setForeground(new java.awt.Color(175, 109, 55));
+        tittleMexicana.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tittleMexicana.setText("MEXICANA");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Amarillo Rojo Azul y Verde Festivo Banderines A4 (847 x 702 px).png"))); // NOI18N
+        pngLoteria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Amarillo Rojo Azul y Verde Festivo Banderines A4 (847 x 702 px).png"))); // NOI18N
 
+        btnIniciarSesion.setBackground(new java.awt.Color(244, 120, 175));
+        btnIniciarSesion.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(51, 0, 51));
         btnIniciarSesion.setText("Iniciar sesión");
+        btnIniciarSesion.setBorder(null);
+        btnIniciarSesion.setBorderPainted(false);
         btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion.setPreferredSize(new java.awt.Dimension(130, 30));
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
 
+        btnCerrarSesion.setBackground(new java.awt.Color(244, 120, 175));
+        btnCerrarSesion.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(51, 0, 51));
         btnCerrarSesion.setText("Cerrar sesión");
+        btnCerrarSesion.setBorder(null);
+        btnCerrarSesion.setBorderPainted(false);
         btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrarSesion.setPreferredSize(new java.awt.Dimension(130, 30));
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarSesionActionPerformed(evt);
+            }
+        });
+
+        btnInstrucciones.setBackground(new java.awt.Color(244, 120, 175));
+        btnInstrucciones.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnInstrucciones.setForeground(new java.awt.Color(51, 0, 51));
+        btnInstrucciones.setText("Instrucciones");
+        btnInstrucciones.setBorder(null);
+        btnInstrucciones.setBorderPainted(false);
+        btnInstrucciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInstrucciones.setPreferredSize(new java.awt.Dimension(130, 30));
+        btnInstrucciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInstruccionesActionPerformed(evt);
             }
         });
 
@@ -124,12 +152,13 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tittleLoteria, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tittleMexicana, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(btnJugar, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInstrucciones, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pngLoteria))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -138,29 +167,32 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(lblUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblPuntuacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnIniciarSesion))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCerrarSesion)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
+                .addComponent(pngLoteria)
                 .addGap(134, 134, 134)
-                .addComponent(jLabel1)
+                .addComponent(tittleLoteria)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(tittleMexicana)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(90, 90, 90)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(btnCerrarSesion)
+                        .addComponent(btnJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnIniciarSesion))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInstrucciones, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -183,7 +215,7 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
 
         if (reproductor != null) {
             reproductor.detener();
@@ -201,7 +233,7 @@ public class Principal extends javax.swing.JFrame {
 
         close();
         new Juego().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnJugarActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         if (reproductor != null) {
@@ -223,7 +255,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-       
+
         if (reproductor != null) {
             reproductor.detener();
         }
@@ -248,13 +280,32 @@ public class Principal extends javax.swing.JFrame {
                 javax.swing.JOptionPane.INFORMATION_MESSAGE);
 
         actualizarInterfazSesion();
-        
+
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
+    private void btnInstruccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstruccionesActionPerformed
+        if (reproductor != null) {
+            reproductor.detener();
+        }
+
+        ReproductorDeSonido clipBoton = new ReproductorDeSonido();
+        clipBoton.cargarSonido("src\\main\\resources\\button-124476.wav");
+        clipBoton.reproducir();
+
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
+        close();
+        new Instrucciones().setVisible(true);
+    }//GEN-LAST:event_btnInstruccionesActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -268,25 +319,17 @@ public static void main(String args[]) {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal
-
-.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal
-
-.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal
-
-.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal
-
-.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -301,12 +344,13 @@ public static void main(String args[]) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btnInstrucciones;
+    private javax.swing.JButton btnJugar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblPuntuacion;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel pngLoteria;
+    private javax.swing.JLabel tittleLoteria;
+    private javax.swing.JLabel tittleMexicana;
     // End of variables declaration//GEN-END:variables
 }

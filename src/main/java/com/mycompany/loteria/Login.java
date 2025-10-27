@@ -54,40 +54,65 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 231, 176));
         jPanel1.setPreferredSize(new java.awt.Dimension(844, 674));
 
-        tittleLogin.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        tittleLogin.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
+        tittleLogin.setForeground(new java.awt.Color(175, 109, 55));
         tittleLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tittleLogin.setText("Inicia sesión");
 
+        btnIngresar.setBackground(new java.awt.Color(244, 120, 175));
+        btnIngresar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnIngresar.setForeground(new java.awt.Color(51, 0, 51));
         btnIngresar.setText("Ingresar");
+        btnIngresar.setBorder(null);
+        btnIngresar.setBorderPainted(false);
         btnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIngresar.setPreferredSize(new java.awt.Dimension(130, 30));
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
             }
         });
 
-        btnVolver.setText("Volver al inicio");
+        btnVolver.setBackground(new java.awt.Color(244, 120, 175));
+        btnVolver.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(51, 0, 51));
+        btnVolver.setText("Volver al menú");
+        btnVolver.setBorder(null);
+        btnVolver.setBorderPainted(false);
         btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolver.setPreferredSize(new java.awt.Dimension(130, 30));
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
 
+        fieldContraseña.setBackground(new java.awt.Color(244, 120, 175));
         fieldContraseña.setText("jPasswordField1");
 
+        fieldCorreo.setBackground(new java.awt.Color(244, 120, 175));
         fieldCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldCorreoActionPerformed(evt);
             }
         });
 
+        tittleCorreo.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        tittleCorreo.setForeground(new java.awt.Color(175, 109, 55));
         tittleCorreo.setText("Correo electrónico");
 
+        tittleContraseña.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        tittleContraseña.setForeground(new java.awt.Color(175, 109, 55));
         tittleContraseña.setText("Contraseña");
 
+        btnRegistro.setBackground(new java.awt.Color(244, 120, 175));
+        btnRegistro.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(51, 0, 51));
         btnRegistro.setText("Registrarse");
+        btnRegistro.setBorder(null);
+        btnRegistro.setBorderPainted(false);
         btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistro.setPreferredSize(new java.awt.Dimension(130, 30));
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);
@@ -102,26 +127,25 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnVolver))
+                        .addContainerGap()
+                        .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(212, 212, 212)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(tittleCorreo)
-                                    .addComponent(tittleContraseña))
-                                .addGap(32, 32, 32)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fieldContraseña)
-                                    .addComponent(fieldCorreo)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(377, 377, 377)
-                                .addComponent(btnIngresar)
-                                .addGap(32, 32, 32)
-                                .addComponent(btnRegistro)))
-                        .addGap(0, 270, Short.MAX_VALUE)))
+                            .addComponent(tittleCorreo)
+                            .addComponent(tittleContraseña))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(fieldCorreo)
+                            .addComponent(fieldContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(357, 357, 357)
+                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(357, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,12 +160,12 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tittleContraseña))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addGap(73, 73, 73)
+                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIngresar)
-                    .addComponent(btnRegistro))
-                .addGap(151, 151, 151)
-                .addComponent(btnVolver)
+                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
